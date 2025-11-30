@@ -1,0 +1,25 @@
+{
+  "atribuições": [
+    {
+      "motorista": "M4",
+      "rota": "R2",
+      "custo": 7
+    },
+    {
+      "motorista": "M1",
+      "rota": "R1",
+      "custo": 10
+    },
+    {
+      "motorista": "M3",
+      "rota": "R3",
+      "custo": 16
+    },
+    {
+      "motorista": "M2",
+      "rota": "R4",
+      "custo": 25
+    }
+  ],
+  "custo_total": 58
+}

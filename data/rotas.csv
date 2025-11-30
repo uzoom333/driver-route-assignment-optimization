@@ -1,0 +1,5 @@
+id_rota,descricao,origem,destino
+R1,CD Anapolis -> Brasilia,Anapolis,Brasilia
+R2,CD Anapolis -> Goiania,Anapolis,Goiania
+R3,CD Anapolis -> Cuiaba,Anapolis,Cuiaba
+R4,CD Anapolis -> Campo Grande,Anapolis,Campo Grande
