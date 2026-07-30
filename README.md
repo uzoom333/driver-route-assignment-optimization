@@ -44,8 +44,8 @@ projetopaa/
 ## Installation
 
 ```bash
-git clone https://github.com/uzxcontato-ui/projetopaa.git
-cd projetopaa
+git clone https://github.com/uzoom333/driver-route-assignment-optimization.git
+cd driver-route-assignment-optimization
 
 python3 -m venv .venv
 source .venv/bin/activate
