@@ -1,77 +1,93 @@
-# 🚛 Alocação Ótima de Motoristas às Rotas
+# Driver-to-Route Assignment Optimization
 
-Projeto Integrador da disciplina de **Projeto e Análise de Algoritmos (PAA)** — Ciência da Computação.
+A university Algorithm Design project that models one-to-one driver and route assignment as a minimum-cost bipartite matching problem.
 
-## 📌 Sobre
+## Project Overview
 
-Este projeto resolve o problema de atribuição 1-para-1 entre motoristas e rotas, buscando minimizar o custo total da operação logística da empresa fictícia **MidWest Logistics S/A**. O custo pode representar tempo, distância, risco ou uma combinação ponderada desses fatores.
+The case study uses the fictional company MidWest Logistics S/A. Each driver-route pair has a cost that may represent time, distance, risk, or a weighted combination of factors. The program compares two assignment methods:
 
-O problema é modelado como uma atribuição em **grafo bipartido** e resolvido por dois métodos:
+- a greedy algorithm, which is straightforward and fast but does not guarantee a global optimum;
+- the Hungarian algorithm, which solves the assignment problem optimally in polynomial time.
 
-- **Algoritmo Guloso** — abordagem simples e rápida, porém sem garantia de solução ótima
-- **Algoritmo Húngaro** — garante a solução ótima com complexidade O(n³)
+The repository contains the input data used by the project, both implementations, generated assignments, and visual comparisons.
 
-## 📂 Estrutura
+## Mathematical Formulation
 
-```
-├── src/                → Código-fonte
-│   ├── main.py         → Ponto de entrada da aplicação
-│   ├── dados.py        → Carregamento dos dados CSV
-│   ├── guloso.py       → Implementação do algoritmo Guloso
-│   ├── hungaro.py      → Implementação do algoritmo Húngaro
-│   ├── visual.py       → Geração de gráficos e visualizações
-│   ├── saida.py        → Exportação dos resultados (CSV/JSON)
-│   └── benchmark.py    → Comparação de desempenho entre algoritmos
-│
-├── data/               → Dados de entrada
-│   ├── motoristas.csv  → Cadastro de motoristas
-│   ├── rotas.csv       → Informações das rotas
-│   └── custos.csv      → Matriz de custos motorista × rota
-│
-├── resultados/         → Saída gerada
-│   ├── atribuicoes_guloso.csv / .json
-│   ├── atribuicoes_hungaro.csv / .json
-│   ├── matriz_custos.png
-│   └── custos_guloso.png
-│
-└── docs/               → Relatório técnico e apresentação
+Drivers and routes form the two partitions of a bipartite graph. An edge connects every eligible driver-route pair and carries its assignment cost. The objective is to select a one-to-one matching with minimum total cost.
+
+## Repository Structure
+
+```text
+projetopaa/
+├── data/        # Driver, route, and cost-matrix CSV files
+├── docs/        # Course report material
+├── resultados/  # Generated CSV, JSON, and chart outputs
+├── src/
+│   ├── benchmark.py
+│   ├── dados.py
+│   ├── guloso.py
+│   ├── hungaro.py
+│   ├── main.py
+│   ├── saida.py
+│   └── visual.py
+└── README.md
 ```
 
-## ⚙️ Pré-requisitos
+## Requirements
 
-- Python 3.9+
+- Python 3.9 or later
 - pandas
-- numpy
-- scipy
-- matplotlib
+- NumPy
+- SciPy
+- Matplotlib
+
+## Installation
 
 ```bash
-pip install pandas numpy scipy matplotlib
+git clone https://github.com/uzxcontato-ui/projetopaa.git
+cd projetopaa
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install pandas numpy scipy matplotlib
 ```
 
-## 🚀 Como executar
+On Windows PowerShell, activate the environment with `.\.venv\Scripts\Activate.ps1`.
+
+## Running the Project
+
+The current scripts use paths relative to the `src` directory:
 
 ```bash
 cd src
 python main.py
 ```
 
-Os resultados serão gerados na pasta `resultados/`.
+Generated assignment files and figures are written to `resultados/`.
 
-## 🛠️ Tecnologias
+## Outputs
 
-- Python
-- Pandas / NumPy — manipulação de dados
-- SciPy — implementação do algoritmo Húngaro
-- Matplotlib — visualização de dados
+- greedy and Hungarian assignments in CSV and JSON;
+- a cost-matrix heatmap;
+- per-assignment cost charts;
+- console output with total costs for comparison.
 
-## 👥 Equipe — Grupo 5
+The committed outputs correspond to the repository's example dataset and should not be generalized to real logistics operations without additional modeling and validation.
+
+## Technologies
+
+- Python for implementation
+- pandas and NumPy for data handling
+- SciPy for the Hungarian assignment routine
+- Matplotlib for visualization
+
+## Academic Context
+
+Developed in November 2025 for the Project and Analysis of Algorithms course.
+
+### Group 5
 
 - Renato Morais
 - Gabriel Dantas
 - Guilherme Aguiar
 - Flaelisnanda
-
----
-
-*Projeto desenvolvido para a disciplina de Projeto e Análise de Algoritmos — Novembro/2025*
